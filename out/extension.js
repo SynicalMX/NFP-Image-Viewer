@@ -56,10 +56,7 @@ function getWebviewContent(image) {
     let body = `<div class="container">`;
     for (let i = 0; i < image.length; i++) {
         let left = i * 10;
-        if (image[i] === '\n') {
-            image[i] = 'none';
-        }
-        body = body + `<div class="pixel" id="${image[i]}" style="left:${left};">` + '\n';
+        body = body + `<div class="pixel" id="${image[i]}" style="top:${left}px;">` + '\n';
     }
     body = body + '</div>';
     let html = `
@@ -73,12 +70,13 @@ function getWebviewContent(image) {
 			<style>
 				.container {
 					width: 100%;
-					height: 100%;
+					height: 20px;
 				}
 
 				.pixel {
 					width: 10px;
 					height: 20px;
+					margin-left: 10px;
 				}
 
 				#0 {
